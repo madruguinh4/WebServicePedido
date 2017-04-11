@@ -64,19 +64,29 @@
 		No arquivo src/main/resources/application.properties estão as configurações de 
 		banco como senha e usuário, caso preciso, favor alterá-lo.
 		
-		Depois disso, executar o script o comando abaixo no seu banco de dados.
+		Depois disso, executar o script os comandos abaixo no seu banco de dados.
 		
-		create database pedido_db
+		------------------------------
+			create database pedido_db;
+			use pedido_db;
+		------------------------------
 		
-		Depois disso , executar a aplicação pela classe WebServiceApplication.java
+		Depois disso , executar a aplicação pela classe :
+		
+		-----------------------------------------------------	
+			br.com.webservice.web.WebServiceApplication.java
+		-----------------------------------------------------
 		
 		O SpringBoot irá cuidar da inicialização da aplicação e o Hibernate irá criar as
 		tabelas no banco de dados automaticamente.
 		
-		Após isso basta inserir os pedidos no banco , como solicitado, pelo script
-		src/webapp/script/script.sql
+		Após isso basta inserir os pedidos no banco , como solicitado, pelo script:
 		
-		Após isso, a aplicação está prontas para as consultas e criações de pedidos.
+		-----------------------------
+		 src/webapp/script/script.sql
+		-----------------------------
+		
+		Após isso, a aplicação está pronta para as consultas e criações de pedidos.
 		
 		Como dica, pode ser usado o PostMan para testar os serviços
 	
