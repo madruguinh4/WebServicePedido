@@ -27,8 +27,8 @@
 		OBS: não incluir '' nos parâmetros, as aspas simples são apenas para 
 		indicação.
 		
-		Para consultar no qual a resposta deve ser um arquivo json , utilizar o prefixo json 
-		no final da url 
+		Para consultar no qual a resposta deve ser um arquivo json , utilizar o
+		sufixo .json no final, para XML usar o sufixo .xml
 		
 		Retorna Json:
 		Exemplo: http://localhost:8888/listAll.json
@@ -51,7 +51,8 @@
 		--Maven : para gerenciamento da aplicação
 		
 		Para construir os serviços, foi usada a Annotation @RestController do Spring
-		junto com a bliboteca jackson-library , na qual permite a manipulação da API REST com	 		mais facilidade.
+		junto com a bliboteca jackson-library , na qual permite a manipulação da 
+		API REST com mais facilidade.
 
 #Subindo a Aplicação
 		
@@ -60,8 +61,8 @@
 		
 		Após isso ,abrir o projeto na IDE.   
 		
-		No arquivo src/main/resources/application.properties estão as configurações de banco 
-		como senha e usuário, caso preciso, favor alterá-lo.
+		No arquivo src/main/resources/application.properties estão as configurações de 
+		banco como senha e usuário, caso preciso, favor alterá-lo.
 		
 		Depois disso, executar o script o comando abaixo no seu banco de dados.
 		
@@ -69,12 +70,15 @@
 		
 		Depois disso , executar a aplicação pela classe WebServiceApplication.java
 		
-		O SpringBoot irá cuidar da inicialização da aplicação e o Hibernate irá criar as tabelas 		no banco de dados automaticamente.
+		O SpringBoot irá cuidar da inicialização da aplicação e o Hibernate irá criar as
+		tabelas no banco de dados automaticamente.
 		
 		Após isso basta inserir os pedidos no banco , como solicitado, pelo script
 		src/webapp/script/script.sql
 		
 		Após isso, a aplicação está prontas para as consultas e criações de pedidos.
+		
+		Como dica, pode ser usado o PostMan para testar os serviços
 	
 		
 			
