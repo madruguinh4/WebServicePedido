@@ -1,0 +1,34 @@
+[
+  {
+    "numeroDeControle": 4,
+    "dataDeCadastro": "11-04-2017",
+    "nomeDoProduto": "Produto",
+    "valor": 1000,
+    "quantidade": 5,
+    "idCliente": 5
+  },
+  {
+    "numeroDeControle": 5,
+    "dataDeCadastro": "02-01-2017",
+    "nomeDoProduto": "Produto",
+    "valor": 2500,
+    "quantidade": 11,
+    "idCliente": 6
+  },
+  {
+    "numeroDeControle": 6,
+    "dataDeCadastro": "10-01-2017",
+    "nomeDoProduto": "Produto",
+    "valor": 100,
+    "quantidade": 2,
+    "idCliente": 7
+  },
+  {
+    "numeroDeControle": 7,
+    "dataDeCadastro": "01-11-2017",
+    "nomeDoProduto": "Produto",
+    "valor": 500,
+    "quantidade": 1,
+    "idCliente": 8
+  }
+]
