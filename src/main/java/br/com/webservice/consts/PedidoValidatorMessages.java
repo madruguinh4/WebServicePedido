@@ -1,5 +1,11 @@
 package br.com.webservice.consts;
 
+/**
+ * 
+ * @author Caique dos Santos Coelho
+ *
+ */
+
 public enum PedidoValidatorMessages {
 	
 	SUCESS("Pedidos processados com sucesso!"),

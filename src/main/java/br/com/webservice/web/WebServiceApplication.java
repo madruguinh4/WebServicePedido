@@ -9,10 +9,17 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import br.com.webservice.controllers.PedidosController;
 
+/**
+ * 
+ * @author Caique dos Santos Coelho
+ *
+ */
+
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 @EntityScan(basePackages={"br.com.webservice.model"})
 @EnableJpaRepositories(basePackages={"br.com.webservice.dao"})
 @ComponentScan(basePackageClasses = PedidosController.class)
+@ComponentScan(basePackages = {"br.com.webservice.validator"})
 public class WebServiceApplication {
 
 	public static void main(String[] args) {

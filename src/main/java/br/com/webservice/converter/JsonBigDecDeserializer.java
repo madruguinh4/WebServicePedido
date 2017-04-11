@@ -8,6 +8,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
+/**
+ * 
+ * @author Caique dos Santos Coelho
+ *
+ */
 public class JsonBigDecDeserializer extends JsonDeserializer<BigDecimal> {
 
 	@Override

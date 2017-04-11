@@ -8,10 +8,19 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.context.annotation.Bean;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import br.com.webservice.converter.JsonBigDecDeserializer;
+import br.com.webservice.converter.JsonDateSerializer;
+import br.com.webservice.converter.JsonLocalDateDeserializer;
 import br.com.webservice.converter.LocalDatePersistenceConverter;
+
+/**
+ * 
+ * @author Caique dos Santos Coelho
+ *
+ */
 
 @Entity
 @Table(name = "pedidos")
@@ -21,18 +30,18 @@ public class Pedido {
 	private Long numeroDeControle;
 
 	@Convert(converter = LocalDatePersistenceConverter.class)
+	@JsonSerialize(using=JsonDateSerializer.class)
+	@JsonDeserialize(using = JsonLocalDateDeserializer.class)
 	private LocalDate dataDeCadastro;
 
-	@NotBlank
 	private String nomeDoProduto;
 	
-	@NotBlank
+
+	@JsonDeserialize(using = JsonBigDecDeserializer.class)
 	private BigDecimal valor;
 	
-	@NotBlank
 	private Integer quantidade;
 	
-	@NotBlank
 	private Long idCliente;
 
 	public Long getNumeroDeControle() {
