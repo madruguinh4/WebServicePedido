@@ -83,7 +83,6 @@ public class PedidoValidator {
 			oldAmount = pedido.getValor();
 			pedido.setValor(oldAmount.subtract(discount));
 		}
-			
 		return PedidoValidatorMessages.SUCESS;
 	}
 

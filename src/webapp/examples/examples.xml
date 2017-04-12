@@ -1,26 +1,32 @@
 <List>
     <Pedido>
-        <numeroDeControle>1</numeroDeControle>
+        <numeroDeControle>200</numeroDeControle>
         <dataDeCadastro>11-04-2017</dataDeCadastro>
         <nomeDoProduto>Name</nomeDoProduto>
         <valor>500</valor>
         <quantidade>2</quantidade>
-        <idCliente>1</idCliente>
+        <idCliente>
+        	<idCliente>1</idCliente>
+        </idCliente>
     </Pedido>
     <Pedido>
-        <numeroDeControle>2</numeroDeControle>
+        <numeroDeControle>201</numeroDeControle>
         <dataDeCadastro>11-04-2017</dataDeCadastro>
         <nomeDoProduto>Nome do Produto</nomeDoProduto>
         <valor>300</valor>
         <quantidade>6</quantidade>
-        <idCliente>2</idCliente>
+         <idCliente>
+        	<idCliente>2</idCliente>
+        </idCliente>
     </Pedido>
     <Pedido>
-        <numeroDeControle>3</numeroDeControle>
+        <numeroDeControle>202</numeroDeControle>
         <dataDeCadastro>11-04-2017</dataDeCadastro>
         <nomeDoProduto>Produto</nomeDoProduto>
         <valor>400</valor>
         <quantidade>10</quantidade>
-        <idCliente>3</idCliente>
+         <idCliente>
+        	<idCliente>3</idCliente>
+        </idCliente>
     </Pedido>
 </List>

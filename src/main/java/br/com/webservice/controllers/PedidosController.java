@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.webservice.consts.PedidoValidatorMessages;
 import br.com.webservice.dao.PedidoDAO;
+import br.com.webservice.model.Cliente;
 import br.com.webservice.model.Pedido;
 import br.com.webservice.validator.PedidoValidator;
 
@@ -60,11 +61,12 @@ public class PedidosController {
 					pedidoDAO.save(pedido);
 				} else {
 					return new ResponseEntity<String>(validate.toString() + 
-											pedido.getNumeroDeControle(), HttpStatus.OK);
+								"[" + pedido.getNumeroDeControle() + "]", 
+								HttpStatus.CONFLICT);
 				}
 			}
 		} else {
-			return new ResponseEntity<String>(validate.toString(), HttpStatus.OK);
+			return new ResponseEntity<String>(validate.toString(), HttpStatus.FORBIDDEN);
 		}
 		return new ResponseEntity<String>(validate.toString(), HttpStatus.OK);
 	}
@@ -86,7 +88,9 @@ public class PedidosController {
 	
 	@RequestMapping("/listByIdCliente/{idCliente}")
 	public ResponseEntity<List<Pedido>> listByIdCliente(@PathVariable Long idCliente) {
-		return new ResponseEntity<List<Pedido>>(pedidoDAO.findByIdCliente(idCliente),HttpStatus.OK);
+		Cliente cliente =  new Cliente();
+		cliente.setIdCliente(idCliente);
+		return new ResponseEntity<List<Pedido>>(pedidoDAO.findByIdCliente(cliente),HttpStatus.OK);
 	}
 	
 	

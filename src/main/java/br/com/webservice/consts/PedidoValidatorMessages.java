@@ -8,9 +8,9 @@ package br.com.webservice.consts;
 
 public enum PedidoValidatorMessages {
 	
-	SUCESS("Pedidos processados com sucesso!"),
-	INVALID_ID("Número de controle já existente !"),
-	INVALID_NUMBER_OF_ORDERS("Quantidade de Pedidos maior do que eseperada! Máximo(10)");
+	SUCESS("Pedidos processados com sucesso! "),
+	INVALID_ID("Número de controle já existente! "),
+	INVALID_NUMBER_OF_ORDERS("Quantidade de Pedidos maior do que a esperada! Máximo[10]");
 	
 	private final String name;       
 

@@ -1,34 +1,42 @@
 [
   {
-    "numeroDeControle": 4,
+    "numeroDeControle": 100,
     "dataDeCadastro": "11-04-2017",
     "nomeDoProduto": "Produto",
     "valor": 1000,
     "quantidade": 5,
-    "idCliente": 5
+    "idCliente": {
+    	"idCliente": 1
+    }
   },
   {
-    "numeroDeControle": 5,
+    "numeroDeControle": 101,
     "dataDeCadastro": "02-01-2017",
     "nomeDoProduto": "Produto",
     "valor": 2500,
     "quantidade": 11,
-    "idCliente": 6
+    "idCliente": {
+    		"idCliente": 2
+    		}
   },
   {
-    "numeroDeControle": 6,
+    "numeroDeControle": 102,
     "dataDeCadastro": "10-01-2017",
     "nomeDoProduto": "Produto",
     "valor": 100,
     "quantidade": 2,
-    "idCliente": 7
+    "idCliente": {
+    		"idCliente": 7
+   		}
   },
   {
-    "numeroDeControle": 7,
+    "numeroDeControle": 103,
     "dataDeCadastro": "01-11-2017",
     "nomeDoProduto": "Produto",
     "valor": 500,
     "quantidade": 1,
-    "idCliente": 8
+    "idCliente": {
+    		"idCliente": 8
+    		}
   }
 ]

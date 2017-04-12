@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import br.com.webservice.model.Cliente;
 import br.com.webservice.model.Pedido;
 
 /**
@@ -15,5 +16,5 @@ import br.com.webservice.model.Pedido;
 public interface PedidoDAO extends JpaRepository<Pedido, Long> {
 	
 	List<Pedido> findByDataDeCadastro(LocalDate date);
-	List<Pedido> findByIdCliente(Long idCliente);
+	List<Pedido> findByIdCliente(Cliente cliente);
 }

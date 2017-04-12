@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -42,8 +43,9 @@ public class Pedido {
 	
 	private Integer quantidade;
 	
-	private Long idCliente;
-
+	@OneToOne
+	private Cliente idCliente;
+	
 	public Long getNumeroDeControle() {
 		return numeroDeControle;
 	}
@@ -84,11 +86,11 @@ public class Pedido {
 		this.quantidade = quantidade;
 	}
 
-	public Long getIdCliente() {
+	public Cliente getIdCliente() {
 		return idCliente;
 	}
 
-	public void setIdCliente(Long idCliente) {
+	public void setIdCliente(Cliente idCliente) {
 		this.idCliente = idCliente;
 	}
 }
