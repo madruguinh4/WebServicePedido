@@ -1,0 +1,118 @@
+CREATE SCHEMA `felixtcc` ;
+
+
+
+CREATE TABLE `felixtcc`.`tb_cadastro_cliente` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL,
+  `sobrenome` VARCHAR(45) NULL,
+  `telefone` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `senha` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+--------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_cadastro_profissional` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL,
+  `sobrenome` VARCHAR(45) NULL,
+  `telefone` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `senha` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`));
+--------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_casa` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idProfissional` INT NULL,
+  `eletricista` VARCHAR(45) NULL,
+  `pintor` VARCHAR(45) NULL,
+  `diarista` VARCHAR(45) NULL,
+  `cozinheira` VARCHAR(45) NULL,
+  `jardineiro` VARCHAR(45) NULL,
+  `motorista` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+--------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_curso` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idProfissional` INT NULL,
+  `idiomaIngles` VARCHAR(45) NULL,
+  `dancaForro` VARCHAR(45) NULL,
+  `artesMarciaisJudo` VARCHAR(45) NULL,
+  `musicaViolao` VARCHAR(45) NULL,
+  `culinaria` VARCHAR(45) NULL,
+  `artesanato` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+---------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_fotografia` (
+  `id` INT NOT NULL,
+  `idProfissional` INT NULL,
+  `eventosCorporativos` VARCHAR(45) NULL,
+  `eventosInfantis` VARCHAR(45) NULL,
+  `casamentos` VARCHAR(45) NULL,
+  `batizado` VARCHAR(45) NULL,
+  `aniversarios` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+--------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_pessoal` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idProfissional` INT NULL,
+  `cabelereiro` VARCHAR(45) NULL,
+  `corteEcustura` VARCHAR(45) NULL,
+  `manicureEpedicure` VARCHAR(45) NULL,
+  `maquiador` VARCHAR(45) NULL,
+  `personalTrainer` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+--------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_pet` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idProfissional` VARCHAR(45) NULL,
+  `passeadorDeCaes` VARCHAR(45) NULL,
+  `banhoTosa` VARCHAR(45) NULL,
+  `hospodagem` VARCHAR(45) NULL,
+  `taxi` VARCHAR(45) NULL,
+  `adestrador` VARCHAR(45) NULL,
+  `veterinario` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+-----------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_saude` (
+  `id` INT NOT NULL,
+  `idProfissional` INT NULL,
+  `acompanhanteDeIdoso` VARCHAR(45) NULL,
+  `enfermeira` VARCHAR(45) NULL,
+  `fisioterapeuta` VARCHAR(45) NULL,
+  `nutricionista` VARCHAR(45) NULL,
+  `psicologo` VARCHAR(45) NULL,
+  `cuidador` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+---------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_tecnologia` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `idProfissional` VARCHAR(45) NULL,
+  `animacao` VARCHAR(45) NULL,
+  `desenvolvimentoJava` VARCHAR(45) NULL,
+  `audioVideo` VARCHAR(45) NULL,
+  `ilustracao` VARCHAR(45) NULL,
+  `marketingOnline` VARCHAR(45) NULL,
+  `modelagel` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+---------------------------------------------------
+CREATE TABLE `felixtcc`.`tb_subcategoria_veiculos` (
+  `id` INT NOT NULL,
+  `idProfissional` INT NULL,
+  `mecanico` VARCHAR(45) NULL,
+  `autoEletrico` VARCHAR(45) NULL,
+  `instaldorDeSom` VARCHAR(45) NULL,
+  `guincho` VARCHAR(45) NULL,
+  `funilaria` VARCHAR(45) NULL,
+  `martelinhoDeOuro` VARCHAR(45) NULL,
+  `borracharia` VARCHAR(45) NULL,
+  `mediaProfissional` INT NULL,
+  PRIMARY KEY (`id`));
+
+
