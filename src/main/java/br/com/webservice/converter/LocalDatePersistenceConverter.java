@@ -4,11 +4,7 @@ import java.time.LocalDate;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-/**
- * 
- * @author Caique dos Santos Coelho
- *
- */
+
 
 @Converter
 public class LocalDatePersistenceConverter implements AttributeConverter<LocalDate, java.sql.Date> {
