@@ -35,6 +35,22 @@ public class SubcategoriaCasaController {
 		return new ResponseEntity<>(subcategoriaCasa, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/",
+			method=RequestMethod.PUT,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SubcategoriaCasa> update(@RequestBody SubcategoriaCasa subcategoriaCasa) {
+		subcategoriaCasa = subcategoriaCasaRepository.save(subcategoriaCasa);
+		return new ResponseEntity<>(subcategoriaCasa, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{idProfissional}",
+			method=RequestMethod.GET,
+			consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<SubcategoriaCasa> findById(@PathVariable("idProfissional") Long idProfissional) {
+		SubcategoriaCasa subcategoriaCasa = subcategoriaCasaRepository.findByIdProfissional(idProfissional);
+		return new ResponseEntity<>(subcategoriaCasa, HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/eletricista",
 			method=RequestMethod.GET)
 	public ResponseEntity<List<SubcategoriaCasa>> findByIdProfissional(@PathVariable("idProfissional") Long idProfissional) {

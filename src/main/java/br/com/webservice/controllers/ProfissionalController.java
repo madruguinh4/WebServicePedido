@@ -32,8 +32,7 @@ public class ProfissionalController {
 	public String create() {
 		return "Testing";
 	}
-	@RequestMapping(value = "/",
-					method=RequestMethod.POST)
+	@RequestMapping(value = "/",method=RequestMethod.POST)
 	public ResponseEntity<Profissional> create(@RequestBody Profissional profissional) {
 		profissional = profissionalRepository.save(profissional);
 		System.out.println("passou aqui");

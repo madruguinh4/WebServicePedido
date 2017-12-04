@@ -13,5 +13,7 @@ public interface SubcategoriaCasaRepository extends JpaRepository<SubcategoriaCa
 	List<SubcategoriaCasa> findByCozinheira(String cozinheira);
 	List<SubcategoriaCasa> findByJardineiro(String jardineiro);
 	List<SubcategoriaCasa> findByMotorista(String motorista);
+	
+	SubcategoriaCasa findByIdProfissional(Long idProfissional);
 }
 
