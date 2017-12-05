@@ -10,7 +10,7 @@ CREATE TABLE `felixtcc`.`tb_cadastro_cliente` (
   `email` VARCHAR(45) NULL,
   `senha` VARCHAR(45) NULL,
   PRIMARY KEY (`id`));
---------------------------------------------------
+
 CREATE TABLE `felixtcc`.`tb_cadastro_profissional` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `felixtcc`.`tb_subcategoria_curso` (
   `artesanato` VARCHAR(45) NULL,
   `mediaProfissional` INT NULL,
   PRIMARY KEY (`id`));
----------------------------------------------------
+
 CREATE TABLE `felixtcc`.`tb_subcategoria_fotografia` (
   `id` INT NOT NULL,
   `idProfissional` INT NULL,
@@ -54,7 +54,6 @@ CREATE TABLE `felixtcc`.`tb_subcategoria_fotografia` (
   `aniversarios` VARCHAR(45) NULL,
   `mediaProfissional` INT NULL,
   PRIMARY KEY (`id`));
---------------------------------------------------
 CREATE TABLE `felixtcc`.`tb_subcategoria_pessoal` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idProfissional` INT NULL,
@@ -65,7 +64,7 @@ CREATE TABLE `felixtcc`.`tb_subcategoria_pessoal` (
   `personalTrainer` VARCHAR(45) NULL,
   `mediaProfissional` INT NULL,
   PRIMARY KEY (`id`));
---------------------------------------------------
+
 CREATE TABLE `felixtcc`.`tb_subcategoria_pet` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idProfissional` VARCHAR(45) NULL,
@@ -77,7 +76,7 @@ CREATE TABLE `felixtcc`.`tb_subcategoria_pet` (
   `veterinario` VARCHAR(45) NULL,
   `mediaProfissional` INT NULL,
   PRIMARY KEY (`id`));
------------------------------------------------------
+
 CREATE TABLE `felixtcc`.`tb_subcategoria_saude` (
   `id` INT NOT NULL,
   `idProfissional` INT NULL,
@@ -89,7 +88,7 @@ CREATE TABLE `felixtcc`.`tb_subcategoria_saude` (
   `cuidador` VARCHAR(45) NULL,
   `mediaProfissional` INT NULL,
   PRIMARY KEY (`id`));
----------------------------------------------------
+
 CREATE TABLE `felixtcc`.`tb_subcategoria_tecnologia` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `idProfissional` VARCHAR(45) NULL,
@@ -101,7 +100,7 @@ CREATE TABLE `felixtcc`.`tb_subcategoria_tecnologia` (
   `modelagel` VARCHAR(45) NULL,
   `mediaProfissional` INT NULL,
   PRIMARY KEY (`id`));
----------------------------------------------------
+
 CREATE TABLE `felixtcc`.`tb_subcategoria_veiculos` (
   `id` INT NOT NULL,
   `idProfissional` INT NULL,

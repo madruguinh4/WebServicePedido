@@ -44,8 +44,7 @@ public class SubcategoriaCasaController {
 	}
 	
 	@RequestMapping(value = "/{idProfissional}",
-			method=RequestMethod.GET,
-			consumes = MediaType.APPLICATION_JSON_VALUE)
+			method=RequestMethod.GET)
 	public ResponseEntity<SubcategoriaCasa> findById(@PathVariable("idProfissional") Long idProfissional) {
 		SubcategoriaCasa subcategoriaCasa = subcategoriaCasaRepository.findByIdProfissional(idProfissional);
 		return new ResponseEntity<>(subcategoriaCasa, HttpStatus.OK);
