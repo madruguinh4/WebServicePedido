@@ -61,5 +61,35 @@ public class ProfissionalController {
 		return profissionals;
 	}
 	
+	@RequestMapping(value = "/categoria/{categoria}",
+			method=RequestMethod.GET)
+	public List<Profissional> categoria(@PathVariable("categoria") String categoria) {
+		
+		List<Profissional> profissionals = new ArrayList<>();
+		List<SubcategoriaCasa> subcategoriaCasas = null;
+		
+		if("eletricista".equalsIgnoreCase(categoria)){
+			subcategoriaCasas = subcategoriaCasaRepository.findByEletricista("1");
+		}else if("pintor".equalsIgnoreCase(categoria)){
+			subcategoriaCasas = subcategoriaCasaRepository.findByPintor("1");
+		}else if("diarista".equalsIgnoreCase(categoria)){
+			subcategoriaCasas = subcategoriaCasaRepository.findByDiarista("1");
+		}else if("cozinheira".equalsIgnoreCase(categoria)){
+			subcategoriaCasas = subcategoriaCasaRepository.findByCozinheira("1");
+		}else if("jardineiro".equalsIgnoreCase(categoria)){
+			subcategoriaCasas = subcategoriaCasaRepository.findByJardineiro("1");
+		}else if("motorista".equalsIgnoreCase(categoria)){
+			subcategoriaCasas = subcategoriaCasaRepository.findByMotorista("1");
+		}
+		
+		for (SubcategoriaCasa subcategoriaCasa : subcategoriaCasas) {
+			Profissional profissional = profissionalRepository.findOne(subcategoriaCasa.getIdProfissional());
+			Integer mediaProfisional = subcategoriaCasa.getMediaProfisional();
+			profissional.setMediaProfisional(mediaProfisional != null ? mediaProfisional : 0);
+			profissionals.add(profissional);
+		}			
+		
+		return profissionals;
+	}
 	
 }

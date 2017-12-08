@@ -31,6 +31,8 @@ public class Profissional {
 	@Column(name= "SENHA")
 	private String senha;
 	
+	private Integer mediaProfisional;
+	
 	public String getNome() {
 		return nome;
 	}
@@ -77,5 +79,13 @@ public class Profissional {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Integer getMediaProfisional() {
+		return mediaProfisional;
+	}
+
+	public void setMediaProfisional(Integer mediaProfisional) {
+		this.mediaProfisional = mediaProfisional;
 	}
 }
