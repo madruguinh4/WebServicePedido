@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.webservice.model.SubcategoriaCasa;
 import br.com.webservice.model.SubcategoriaCurso;
 
 public interface SubcategoriaCursoRepository extends JpaRepository<SubcategoriaCurso, Long> {

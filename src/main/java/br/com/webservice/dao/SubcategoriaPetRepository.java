@@ -4,9 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.webservice.model.SubcategoriaCasa;
 import br.com.webservice.model.SubcategoriaPet;
-import br.com.webservice.model.SubcategoriaVeiculo;
 
 public interface SubcategoriaPetRepository extends JpaRepository<SubcategoriaPet, Long> {
 	List<SubcategoriaPet> findByAdestrador(String adestrador);

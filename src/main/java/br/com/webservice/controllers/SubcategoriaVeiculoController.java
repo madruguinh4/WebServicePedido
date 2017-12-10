@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.webservice.dao.SubcategoriaCasaRepository;
 import br.com.webservice.dao.SubcategoriaVeiculoRepository;
-import br.com.webservice.model.SubcategoriaCasa;
 import br.com.webservice.model.SubcategoriaVeiculo;
 
 
