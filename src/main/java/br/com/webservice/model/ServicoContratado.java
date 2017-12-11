@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "TB_SERVICO_CONTRATADOS")
@@ -27,6 +28,9 @@ public class ServicoContratado {
 	
 	@Column(name= "SUBCATEGORIA")
 	private String subcategoria;
+	
+	@Transient
+	private Profissional profissional;
 
 	public Long getId() {
 		return id;
@@ -66,5 +70,13 @@ public class ServicoContratado {
 
 	public void setSubcategoria(String subcategoria) {
 		this.subcategoria = subcategoria;
+	}
+
+	public Profissional getProfissional() {
+		return profissional;
+	}
+
+	public void setProfissional(Profissional profissional) {
+		this.profissional = profissional;
 	}
 }

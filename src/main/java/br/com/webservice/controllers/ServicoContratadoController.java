@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.webservice.dao.ProfissionalRepository;
 import br.com.webservice.dao.ServicoContratadoRepository;
 import br.com.webservice.model.ServicoContratado;
 
@@ -21,6 +22,9 @@ public class ServicoContratadoController {
 	
 	@Autowired
 	private ServicoContratadoRepository servicoContratadoRepository;
+	
+	@Autowired
+	private ProfissionalRepository profissionalRepository;
 	
 	@RequestMapping(value = "/",
 					method=RequestMethod.POST)
@@ -42,6 +46,10 @@ public class ServicoContratadoController {
 			method=RequestMethod.GET)
 	public ResponseEntity<List<ServicoContratado>> findByCliente(@PathVariable("idCliente") Long idCliente) {
 		List<ServicoContratado> servicoContratado = servicoContratadoRepository.findByIdCliente(idCliente);
+		for (int i = 0; i < servicoContratado.size(); i++) {
+			servicoContratado.get(i).setProfissional(profissionalRepository.findOne(servicoContratado.get(i).getIdProfissional()));
+			
+		}
 		return new ResponseEntity<List<ServicoContratado>>(servicoContratado, HttpStatus.OK);
 	}
 	
@@ -50,5 +58,12 @@ public class ServicoContratadoController {
 	public ResponseEntity<List<ServicoContratado>> findByProfissional(@PathVariable("idProfissional") Long idProfissional) {
 		List<ServicoContratado> servicoContratado = servicoContratadoRepository.findByIdProfissional(idProfissional);
 		return new ResponseEntity<List<ServicoContratado>>(servicoContratado, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{id}",
+			method=RequestMethod.DELETE)
+	public ResponseEntity<Boolean> delete(@PathVariable("id") Long id) {
+		servicoContratadoRepository.delete(id);
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 }
