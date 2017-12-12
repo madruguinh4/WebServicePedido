@@ -34,6 +34,9 @@ public class ServicoContratado {
 	
 	@Transient
 	private Profissional profissional;
+	
+	@Transient
+	private Cliente cliente;
 
 	public Long getId() {
 		return id;
@@ -89,5 +92,13 @@ public class ServicoContratado {
 
 	public void setNota(Integer nota) {
 		this.nota = nota;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 }

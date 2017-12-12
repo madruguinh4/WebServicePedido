@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.webservice.dao.ClienteRepository;
 import br.com.webservice.dao.ProfissionalRepository;
 import br.com.webservice.dao.ServicoContratadoRepository;
 import br.com.webservice.model.ServicoContratado;
@@ -25,6 +26,9 @@ public class ServicoContratadoController {
 	
 	@Autowired
 	private ProfissionalRepository profissionalRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
 	
 	@RequestMapping(value = "/",
 					method=RequestMethod.POST)
@@ -48,7 +52,6 @@ public class ServicoContratadoController {
 		List<ServicoContratado> servicoContratado = servicoContratadoRepository.findByIdClienteAndNotaIsNull(idCliente);
 		for (int i = 0; i < servicoContratado.size(); i++) {
 			servicoContratado.get(i).setProfissional(profissionalRepository.findOne(servicoContratado.get(i).getIdProfissional()));
-			
 		}
 		return new ResponseEntity<List<ServicoContratado>>(servicoContratado, HttpStatus.OK);
 	}
@@ -57,6 +60,9 @@ public class ServicoContratadoController {
 			method=RequestMethod.GET)
 	public ResponseEntity<List<ServicoContratado>> findByProfissional(@PathVariable("idProfissional") Long idProfissional) {
 		List<ServicoContratado> servicoContratado = servicoContratadoRepository.findByIdProfissional(idProfissional);
+		for (int i = 0; i < servicoContratado.size(); i++) {
+			servicoContratado.get(i).setCliente(clienteRepository.findOne(servicoContratado.get(i).getIdCliente()));
+		}
 		return new ResponseEntity<List<ServicoContratado>>(servicoContratado, HttpStatus.OK);
 	}
 	
