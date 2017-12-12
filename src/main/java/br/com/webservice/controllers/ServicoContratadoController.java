@@ -45,7 +45,7 @@ public class ServicoContratadoController {
 	@RequestMapping(value = "/cliente/{idCliente}",
 			method=RequestMethod.GET)
 	public ResponseEntity<List<ServicoContratado>> findByCliente(@PathVariable("idCliente") Long idCliente) {
-		List<ServicoContratado> servicoContratado = servicoContratadoRepository.findByIdCliente(idCliente);
+		List<ServicoContratado> servicoContratado = servicoContratadoRepository.findByIdClienteAndNotaIsNull(idCliente);
 		for (int i = 0; i < servicoContratado.size(); i++) {
 			servicoContratado.get(i).setProfissional(profissionalRepository.findOne(servicoContratado.get(i).getIdProfissional()));
 			
@@ -64,6 +64,15 @@ public class ServicoContratadoController {
 			method=RequestMethod.DELETE)
 	public ResponseEntity<Boolean> delete(@PathVariable("id") Long id) {
 		servicoContratadoRepository.delete(id);
+		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/avaliar/{id}/{nota}",
+			method=RequestMethod.PUT)
+	public ResponseEntity<Boolean> avaliar(@PathVariable("id") Long id,@PathVariable("nota") Integer nota) {
+		ServicoContratado servicoContratado = servicoContratadoRepository.findOne(id);
+		servicoContratado.setNota(nota);
+		servicoContratadoRepository.save(servicoContratado);
 		return new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 }

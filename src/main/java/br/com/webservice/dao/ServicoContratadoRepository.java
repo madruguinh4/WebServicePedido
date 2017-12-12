@@ -8,7 +8,7 @@ import br.com.webservice.model.ServicoContratado;
 
 public interface ServicoContratadoRepository extends JpaRepository<ServicoContratado, Long> {
 
-	List<ServicoContratado> findByIdCliente(Long idCliente);
+	List<ServicoContratado> findByIdClienteAndNotaIsNull(Long idCliente);
 
 	List<ServicoContratado> findByIdProfissional(Long idProfissional);
 

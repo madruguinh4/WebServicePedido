@@ -29,6 +29,9 @@ public class ServicoContratado {
 	@Column(name= "SUBCATEGORIA")
 	private String subcategoria;
 	
+	@Column(name= "NOTA")
+	private Integer nota;
+	
 	@Transient
 	private Profissional profissional;
 
@@ -78,5 +81,13 @@ public class ServicoContratado {
 
 	public void setProfissional(Profissional profissional) {
 		this.profissional = profissional;
+	}
+
+	public Integer getNota() {
+		return nota;
+	}
+
+	public void setNota(Integer nota) {
+		this.nota = nota;
 	}
 }
