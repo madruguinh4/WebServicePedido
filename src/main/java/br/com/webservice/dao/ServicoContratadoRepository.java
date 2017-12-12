@@ -11,6 +11,7 @@ public interface ServicoContratadoRepository extends JpaRepository<ServicoContra
 	List<ServicoContratado> findByIdClienteAndNotaIsNull(Long idCliente);
 
 	List<ServicoContratado> findByIdProfissional(Long idProfissional);
-
+	
+	List<ServicoContratado> findByIdProfissionalAndSubcategoriaLike(Long idProfissional,String categoria);
 }
 

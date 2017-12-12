@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.webservice.dao.ProfissionalRepository;
+import br.com.webservice.dao.ServicoContratadoRepository;
 import br.com.webservice.dao.SubcategoriaCasaRepository;
 import br.com.webservice.model.Profissional;
+import br.com.webservice.model.ServicoContratado;
 import br.com.webservice.model.SubcategoriaCasa;
 
 
@@ -27,6 +29,9 @@ public class ProfissionalController {
 	
 	@Autowired
 	private ProfissionalRepository profissionalRepository;
+	
+	@Autowired
+	private ServicoContratadoRepository servicoContratadoRepository;
 	
 	@RequestMapping("/")
 	public String create() {
@@ -69,6 +74,7 @@ public class ProfissionalController {
 		List<SubcategoriaCasa> subcategoriaCasas = null;
 		
 		if("eletricista".equalsIgnoreCase(categoria)){
+			
 			subcategoriaCasas = subcategoriaCasaRepository.findByEletricista("1");
 		}else if("pintor".equalsIgnoreCase(categoria)){
 			subcategoriaCasas = subcategoriaCasaRepository.findByPintor("1");
@@ -81,13 +87,20 @@ public class ProfissionalController {
 		}else if("motorista".equalsIgnoreCase(categoria)){
 			subcategoriaCasas = subcategoriaCasaRepository.findByMotorista("1");
 		}
-		
-		for (SubcategoriaCasa subcategoriaCasa : subcategoriaCasas) {
-			Profissional profissional = profissionalRepository.findOne(subcategoriaCasa.getIdProfissional());
-			Integer mediaProfisional = subcategoriaCasa.getMediaProfisional();
-			profissional.setMediaProfisional(mediaProfisional != null ? mediaProfisional : 0);
-			profissionals.add(profissional);
-		}			
+		if(subcategoriaCasas != null && subcategoriaCasas.size() > 0){
+			for (SubcategoriaCasa subcategoriaCasa : subcategoriaCasas) {
+				Profissional profissional = profissionalRepository.findOne(subcategoriaCasa.getIdProfissional());
+				
+				List<ServicoContratado> servicoContratados = servicoContratadoRepository.findByIdProfissionalAndSubcategoriaLike(profissional.getId(), categoria.toLowerCase());
+				int qtd = 0;
+				for (ServicoContratado servicoContratado : servicoContratados) {
+					if(servicoContratado.getNota() != null)
+						qtd += servicoContratado.getNota();
+				}
+				profissional.setMediaProfisional(qtd > 0 ? qtd / servicoContratados.size(): 0);
+				profissionals.add(profissional);
+			}	
+		}
 		
 		return profissionals;
 	}
