@@ -10,7 +10,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "TB_SERVICO_CONTRATADOS")
-public class ServicoContratado {
+public class ServicoContratado implements Comparable<ServicoContratado>{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -100,5 +100,10 @@ public class ServicoContratado {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	@Override
+	public int compareTo(ServicoContratado o) {
+		return this.profissional.getMediaProfisional().compareTo(o.getProfissional().getMediaProfisional());
 	}
 }
